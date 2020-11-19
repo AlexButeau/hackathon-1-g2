@@ -6,7 +6,6 @@ import QuestsList from './QuestsList';
 import axios from 'axios';
 import Navbar from './Navbar';
 import QuestPost from './QuestPost';
-import QuestsList from './QuestsList';
 import './styles/Home.scss';
 
 const Home = () => {
@@ -29,19 +28,19 @@ const Home = () => {
               center: '',
               right: 'prev,next'
             }}
+            defaultView='week'
             defaultDate = {moment('470-11-20').format('YYYY-MM-DD')}
             events={events}
             navLinks={true} // can click day/week names to navigate views
             editable={true}
             height={450}
-            today={false}
             selectable={true}
             eventLimit={true} // allow "more" link when too many events
         />
         </div>
 
       <Navbar />
- <QuestsList />
+      <QuestsList />
       <QuestPost />
 
     </div>

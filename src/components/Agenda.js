@@ -18,7 +18,7 @@ const Agenda = () => {
                 console.log(data);
                 setEvents(data);
             });
-    },[])
+    },[]);
 
     const conveneKnights = () => {
         axios.post('https://kaamelot-server.herokuapp.com/agenda', {
@@ -27,7 +27,7 @@ const Agenda = () => {
           })
           .then(function (response) {
             setEvents(response.data);
-          })
+          });
     }
 
 
