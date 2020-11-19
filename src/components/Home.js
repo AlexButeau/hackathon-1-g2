@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import moment from 'moment';
 import './styles/Agenda.scss'
 import FullCalendar from 'fullcalendar-reactwrapper';
 import QuestsList from './QuestsList';
+import axios from 'axios';
 
 const Home = () => {
-  const events = [{
-          title: 'Birthday Party',
-          start: '470-11-13 07:00:00'
-      },
-      {
-          title: 'Click for Google',
-          start: '470-11-28'
-      }];
+  const [events, setEvents] = useState([]);
+        useEffect(() =>{
+          axios.get("https://kaamelot-server.herokuapp.com/agenda")
+              .then((res) => res.data)
+              .then((data)=>{
+                  console.log(data);
+                  setEvents(data);
+              });
+      },[]);
   return (
     <div className='home'>
       <div className='agendaSection'>

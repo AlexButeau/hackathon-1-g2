@@ -5,7 +5,6 @@ import axios from 'axios';
 import FullCalendar from 'fullcalendar-reactwrapper';
 
 const Agenda = () => {
-    const [showWeekends, setShowWeekends] = useState(false);
     const [events, setEvents] = useState([]);
     const [titleEvent, setTitleEvent] = useState('');
     const [knightAssignedEvent, setKnightAssignedEvent] = useState('');
