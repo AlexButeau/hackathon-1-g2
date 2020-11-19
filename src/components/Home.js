@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import moment from 'moment';
-import './styles/Agenda.scss'
+import './styles/Agenda.scss';
 import FullCalendar from 'fullcalendar-reactwrapper';
 import QuestsList from './QuestsList';
 import axios from 'axios';
@@ -19,11 +19,11 @@ const Home = () => {
       },[]);
   return (
     <div className='home'>
-
       <div className='agendaSection'>
       <FullCalendar
             id="agenda"
             header={{
+              left: 'month,basicWeek,basicDay',
               center: '',
               right: 'prev,next'
             }}
@@ -35,12 +35,11 @@ const Home = () => {
             selectable={true}
             eventLimit={true} // allow "more" link when too many events
         />
-        </div>
+      </div>
 
       <Navbar />
       <QuestsList />
       <QuestPost />
-
     </div>
   );
 };
