@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-page {
+  margin-top: 100px;
+
+  .coat-of-arms {
+    padding: 10px;
+    width: 150px;
+    height: 150px;
+    border: 1px solid lightgrey;
+    border-radius: 50%;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    label {
+      text-align: left;
+      font-size: 20px;
+      margin-top: 20px;
+      line-height: 1.5em;
+    }
+
+    input.submit {
+      margin-top: 20px;
+      font-size: 20px;
+      background-color: gray;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}
