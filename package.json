@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.1",
     "@testing-library/user-event": "^12.2.2",
+    "axios": "^0.21.0",
     "fullcalendar-reactwrapper": "^1.0.7",
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
