@@ -56,7 +56,7 @@ function QuestPost() {
                 { label: "karadoc" },
                 { label: "Leodagan" },
                 { label: "Yvain" },
-                { label: "Gauvain" },
+                { label: "Gauvain" }
               ]}
               control={control}
               rules={{ required: true }}
@@ -64,8 +64,19 @@ function QuestPost() {
         </div>
         <br />
         <div className="value">
-          <label htmlFor="value"></label>
-          <input name="value" type="number" min="1" max="5" ref={register} />
+        <Controller
+              name="value"
+              as={Select}
+              options={[
+                { label: "easy", value: "1" },
+                { label: "medium", value: "2" },
+                { label: "hard", value: "3" },
+                { label: "warrior", value: "4" },
+                { label: "You gonna die !", value: "5" }
+              ]}
+              control={control}
+              rules={{ required: true }}
+        />
         </div>
         <br />
         <div className="reward">
