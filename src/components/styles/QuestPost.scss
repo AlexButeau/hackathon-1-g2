@@ -1,0 +1,60 @@
+@import './global.scss';
+
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}
+.title {
+  color: $primary-color;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
+}
+
+.questTitle {
+  width: 100%;
+  height: 5vh;
+  text-align: center;
+}
+
+.location {
+  width: 100%;
+  height: 5vh;
+  text-align: center;
+}
+
+.assignment {
+  width: 100%;
+  height: 5vh;
+  text-align: center;
+}
+
+.questDetails {
+  width: 100%;
+  height: 20vh;
+  text-align: center;
+}
+
+.add {
+  background-color: $primary-color;
+  border: none;
+  width: 50%;
+  height: 5vh;
+  text-align: center;
+  color: white;
+  &:active {
+    background-color: $secondary-color;
+  }
+  &:focus {
+    outline: 0;
+    background-color: $secondary-color;
+  }
+}
