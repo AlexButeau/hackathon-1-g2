@@ -1,0 +1,11 @@
+$primary-color: #682628;
+$secondary-color: #ebd34e;
+$primary-font-family: 'Oswald', sans-serif;
+$secondary-font-family: 'Raleway', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap%27');
+
+* {
+  font-family: $secondary-font-family;
+}

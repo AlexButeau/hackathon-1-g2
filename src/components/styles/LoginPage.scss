@@ -1,14 +1,16 @@
-$red: #682628;
-$darkred: #4a1d23;
+@import './global.scss';
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  align-items: center;
 }
 
 .login-page {
   margin-top: 100px;
+  display: flex;
+  flex-direction: column;
 
   .coat-of-arms {
     padding: 10px;
@@ -33,14 +35,14 @@ $darkred: #4a1d23;
       box-sizing: content-box;
       margin-top: 20px;
       font-size: 20px;
-      background-color: $darkred;
+      background-color: $primary-color;
 
       padding: 20px;
       text-decoration: none;
       border-radius: 50%;
       cursor: pointer;
 
-      background-image: url('../arrow-head-icon.png');
+      background-image: url('../../images/arrow-head-icon.png');
       background-size: cover;
       border: none;
       width: 20px;

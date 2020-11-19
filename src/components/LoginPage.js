@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import coatOfArms from './coat-of-arms.png';
+import coatOfArms from '../images/coat-of-arms.png';
 import './styles/LoginPage.scss';
 
 const LoginPage = (props) => {
