@@ -1,0 +1,13 @@
+@import './global.scss';
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .button-update {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+  }
+}
