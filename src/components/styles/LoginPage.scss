@@ -1,3 +1,6 @@
+$red: #682628;
+$darkred: #4a1d23;
+
 * {
   margin: 0;
   padding: 0;
@@ -27,15 +30,22 @@
     }
 
     input.submit {
+      box-sizing: content-box;
       margin-top: 20px;
       font-size: 20px;
-      background-color: gray;
-      border: none;
-      color: white;
-      padding: 10px 20px;
+      background-color: $darkred;
+
+      padding: 20px;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 50%;
       cursor: pointer;
+
+      background-image: url('../arrow-head-icon.png');
+      background-size: cover;
+      border: none;
+      width: 20px;
+      height: 20px;
+      color: transparent;
     }
   }
 }

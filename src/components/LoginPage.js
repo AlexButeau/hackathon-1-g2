@@ -38,7 +38,7 @@ const LoginPage = (props) => {
             onChange={(e) => setPassword(e.target.value)}
           />{' '}
         </label>
-        <input className='submit' type='submit' value='Envoyer' />
+        <input className='submit' type='submit' value='Send' />
       </form>
     </div>
   );
