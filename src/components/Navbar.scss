@@ -1,0 +1,84 @@
+.menu {
+  background-color: #682628;
+  width: 100%;
+  height: 10vh;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.menu ul  {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  padding: 0px;
+}
+
+.homeIcon {
+  background-image: url('../images/user.png');
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20vw;
+  height: 10vh;
+  cursor: pointer;
+  &:active {
+    background-image: url('../images/user-active.png');
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.agendaIcon {
+  background-image: url('../images/agenda.png');
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20vw;
+  height: 10vh;
+  cursor: pointer;
+  &:active {
+    background-image: url('../images/agenda-active.png');
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.questIcon {
+  background-image: url('../images/quest.png');
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20vw;
+  height: 10vh;
+  cursor: pointer;
+  &:active {
+    background-image: url('../images/quest-active.png');
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.contactIcon {
+  background-image: url('../images/mail.png');
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20vw;
+  height: 10vh;
+  cursor: pointer;
+  &:active {
+    background-image: url('../images/mail-active.png');
+  }
+  &:focus {
+    outline: 0;
+  }
+}
