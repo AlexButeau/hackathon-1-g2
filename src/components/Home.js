@@ -14,7 +14,6 @@ const Home = () => {
           axios.get("https://kaamelot-server.herokuapp.com/agenda")
               .then((res) => res.data)
               .then((data)=>{
-                  console.log(data);
                   setEvents(data);
               });
       },[]);
@@ -28,7 +27,6 @@ const Home = () => {
               center: '',
               right: 'prev,next'
             }}
-            defaultView='week'
             defaultDate = {moment('470-11-20').format('YYYY-MM-DD')}
             events={events}
             navLinks={true} // can click day/week names to navigate views
