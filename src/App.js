@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Agenda from './components/Agenda';
 import LoginPage from './components/LoginPage';
 import QuestDetails from './components/QuestDetails';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Route exact path='/agenda' component={Agenda} />
           <Route path='/quest/:id' component={QuestDetails} />
         </Switch>
+
+      <Navbar />
       </Router>
     </div>
   );
