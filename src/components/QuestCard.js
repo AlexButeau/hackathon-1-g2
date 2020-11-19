@@ -8,7 +8,7 @@ const QuestCard = ({ questData }) => {
         <h2>{questData.name}</h2>
         <p>
           <span className='knight-icon'></span>
-          {questData.assignment}
+          {questData.assignment.label}
         </p>
       </div>
       <p className='localization'>
