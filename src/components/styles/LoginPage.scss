@@ -1,0 +1,53 @@
+@import './global.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.login-page {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+
+  .coat-of-arms {
+    padding: 10px;
+    width: 150px;
+    height: 150px;
+    border: 1px solid lightgrey;
+    border-radius: 50%;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    label {
+      text-align: left;
+      font-size: 20px;
+      margin-top: 20px;
+      line-height: 1.5em;
+    }
+
+    input.submit {
+      box-sizing: content-box;
+      margin-top: 20px;
+      font-size: 20px;
+      background-color: $primary-color;
+
+      padding: 20px;
+      text-decoration: none;
+      border-radius: 50%;
+      cursor: pointer;
+
+      background-image: url('../../images/arrow-head-icon.png');
+      background-size: cover;
+      border: none;
+      width: 20px;
+      height: 20px;
+      color: transparent;
+    }
+  }
+}
