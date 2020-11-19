@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+import QuestPost from './QuestPost';
 // import Agenda from './Agenda';
 import QuestsList from './QuestsList';
 import './styles/Home.scss';
@@ -9,7 +10,8 @@ const Home = () => {
     <div className='home'>
       {/* <Agenda /> */}
       <Navbar />
-      <QuestsList />
+ <QuestsList />
+      <QuestPost />
     </div>
   );
 };
