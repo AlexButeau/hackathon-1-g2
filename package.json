@@ -15,8 +15,10 @@
     "react": "^17.0.1",
     "react-big-calendar": "^0.28.6",
     "react-dom": "^17.0.1",
+    "react-hook-form": "^6.11.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "react-select": "^3.1.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

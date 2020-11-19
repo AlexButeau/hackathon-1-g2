@@ -4,6 +4,10 @@ import './styles/Agenda.scss'
 import FullCalendar from 'fullcalendar-reactwrapper';
 import QuestsList from './QuestsList';
 import axios from 'axios';
+import Navbar from './Navbar';
+import QuestPost from './QuestPost';
+import QuestsList from './QuestsList';
+import './styles/Home.scss';
 
 const Home = () => {
   const [events, setEvents] = useState([]);
@@ -17,6 +21,7 @@ const Home = () => {
       },[]);
   return (
     <div className='home'>
+
       <div className='agendaSection'>
       <FullCalendar
             id="agenda"
@@ -34,7 +39,11 @@ const Home = () => {
             eventLimit={true} // allow "more" link when too many events
         />
         </div>
-      {/* <QuestsList /> */}
+
+      <Navbar />
+ <QuestsList />
+      <QuestPost />
+
     </div>
   );
 };
