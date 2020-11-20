@@ -51,12 +51,15 @@ function QuestPost() {
               name="assignment"
               as={Select}
               options={[
+                { label: "Bohort" },
+                { label: "Calogrenant" },
+                { label: "Galessin" },
+                { label: "Gauvain" },
+                { label: "Karadoc" },
                 { label: "Lancelot" },
-                { label: "Perceval" },
-                { label: "karadoc" },
                 { label: "Leodagan" },
-                { label: "Yvain" },
-                { label: "Gauvain" }
+                { label: "Perceval" },
+                { label: "Yvain" }
               ]}
               control={control}
               rules={{ required: true }}

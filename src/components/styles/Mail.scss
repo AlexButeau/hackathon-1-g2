@@ -11,9 +11,29 @@
 }
 
 .form-group {
-  text-align: center;
+  display: flex;
+  align-items: center;
   width: 50vh;
   margin-top: 5%;
+}
+
+.knight {
+  text-align: center;
+  width: 50vh;
+  height: 5vh;
+  margin-top: 5vh;
+}
+
+.email {
+  text-align: center;
+  width: 50vh;
+  height: 5vh;
+}
+
+.message {
+  text-align: center;
+  width: 50vh;
+  height: 15vh;
 }
 
 .submit {
@@ -21,6 +41,7 @@
   border: none;
   width: 50%;
   height: 5vh;
+  margin-top: 5vh;
   text-align: center;
   color: white;
   &:active {

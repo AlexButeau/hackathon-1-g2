@@ -4,17 +4,18 @@ import './styles/Mail.scss';
 
 const Mail = (props) => {
   const [name, setName] = useState();
-  const [object, setObject] = useState();
+  const [email, setEmail] = useState();
   const [message, setMessage] = useState();
   
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:3002/send`, {name: name, object: object, message: message}) 
+      .post(`http://localhost:3002/send`, {name: name, email: email, message: message}) 
       .then((response)=>{
       if (response.data.status === 'success') {
-        alert("Message Sent."); 
+        alert("Message Sent.");
+        console.log(name) 
         resetForm()
       } else if (response.data.status === 'fail') {
         alert("Message failed to send.")
@@ -24,7 +25,7 @@ const Mail = (props) => {
 
   const resetForm = () => {
     setName('');
-    setObject('');
+    setEmail('');
     setMessage('');
   }
 
@@ -32,25 +33,28 @@ const Mail = (props) => {
       <div className="mail">
         <h1 className="title" >Communicate with your Knights</h1>
         <form id="contact-form" onSubmit={handleSubmit} method="POST">
-          <div className="form-group">
+          <div className="form-select">
               <label htmlFor="name"></label>
-              <select name="name" id="pet-select" value={name} onChange={e => setName(e.target.value)} >
+              <select name="name" className="knight" id="knight-select" value={name} onChange={e => setName(e.target.value)} >
                   <option value="">--Please choose a Knight--</option>
-                  <option value="lancelot">Lancelot</option>
-                  <option value="perceval">Perceval</option>
-                  <option value="karadoc">Karadoc</option>
-                  <option value="leodagan">Leodagan</option>
-                  <option value="yvain">Yvain</option>
+                  <option value="bohort">Bohort</option>
+                  <option value="calogrenant">Calogrenant</option>
+                  <option value="galessin">Galessin</option>
                   <option value="gauvain">Gauvain</option>
+                  <option value="karadoc">Karadoc</option>
+                  <option value="lancelot">Lancelot</option>
+                  <option value="leodagan">Leodagan</option>
+                  <option value="perceval">Perceval</option>
+                  <option value="yvain">Yvain</option>
               </select>
           </div>
           <div className="form-group">
-              <label htmlFor="object"></label>
-              <input type="text" className="form-control" id="text" placeholder="Object" value={object} onChange={e => setObject(e.target.value)} />
+              <label htmlFor="email"></label>
+              <input type="email" className="email" id="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
           </div>
           <div className="form-group">
               <label htmlFor="message"></label>
-              <textarea className="form-control" rows="5" id="message" placeholder="Message" value={message} onChange={e => setMessage(e.target.value)} />
+              <textarea className="message" rows="5" id="message" placeholder="Message" value={message} onChange={e => setMessage(e.target.value)} />
           </div>
           <button type="submit" className="submit" >Submit</button>
         </form>
