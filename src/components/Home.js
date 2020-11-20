@@ -6,7 +6,6 @@ import QuestsList from './QuestsList';
 import axios from 'axios';
 import Navbar from './Navbar';
 import QuestPost from './QuestPost';
-import QuestsList from './QuestsList';
 import './styles/Home.scss';
 
 const Home = () => {
