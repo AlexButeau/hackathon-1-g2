@@ -11,16 +11,15 @@ const Mail = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:3002/send`, {name: name, email: email, message: message}) 
+      .post(`https://kaamelot-server.herokuapp.com/mail?apiKey=76fqibqibiqefb`, {name: name, email: email, message: message}) 
       .then((response)=>{
       if (response.data.status === 'success') {
-        alert("Message Sent.");
-        console.log(name) 
-        resetForm()
+        alert("Message Sent.");  
       } else if (response.data.status === 'fail') {
         alert("Message failed to send.")
       }
     })
+    resetForm();
   }
 
   const resetForm = () => {
