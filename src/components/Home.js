@@ -7,6 +7,7 @@ import axios from 'axios';
 import Navbar from './Navbar';
 
 import './styles/Home.scss';
+// import Knights from './Knights';
 
 const Home = () => {
   const [events, setEvents] = useState([]);
@@ -28,7 +29,7 @@ const Home = () => {
             center: '',
             right: 'prev,next',
           }}
-          defaultDate={moment('0470-11-20')} // caution, i had to remove the .format to make it work on chrome
+          defaultDate={moment('0470-11-20').format('YYYY-MM-DD')}
           events={events}
           navLinks={true} // can click day/week names to navigate views
           editable={true}
@@ -37,7 +38,7 @@ const Home = () => {
           eventLimit={true} // allow "more" link when too many events
         />
       </div>
-
+      {/* <Knights /> */}
       <Navbar />
       <QuestsList />
     </div>
