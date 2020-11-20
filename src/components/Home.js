@@ -10,6 +10,7 @@ import './styles/Home.scss';
 // import Knights from './Knights';
 
 const Home = () => {
+  const [showWeekends, setShowWeekends] = useState(false);
   const [events, setEvents] = useState([]);
   useEffect(() => {
     axios
@@ -19,13 +20,16 @@ const Home = () => {
         setEvents(data);
       });
   }, []);
+  const toggleWeekends = () => {
+      setShowWeekends(!showWeekends);
+  }
   return (
     <div className='home'>
       <div className='agendaSection'>
         <FullCalendar
           id='agenda'
           header={{
-            left: 'month,basicWeek,basicDay',
+            left: 'month,basicWeek  ',
             center: '',
             right: 'prev,next',
           }}
@@ -33,10 +37,12 @@ const Home = () => {
           events={events}
           navLinks={true} // can click day/week names to navigate views
           editable={true}
-          height={450}
+          height={500}
+          weekends={showWeekends}
           selectable={true}
           eventLimit={true} // allow "more" link when too many events
         />
+        <label>Weekends : </label><input type='checkbox' checked={showWeekends} onChange={toggleWeekends}/>
       </div>
       {/* <Knights /> */}
       <Navbar />

@@ -1,10 +1,12 @@
 @import './global.scss';
 @import '~fullcalendar-reactwrapper/dist/css/fullcalendar.min.css';
 
-h1 {
-  text-align: center;
-  margin: 5%;
-  color: $primary-color;
+h1{
+    text-align: center;
+    margin: 5%; 
+    color: $primary-color;
+    border-bottom: groove 1px $primary-color;
+    padding: 10px;
 }
 .agendaSection {
   padding: 10px;
@@ -14,32 +16,55 @@ h1 {
   color: black;
   margin-bottom: 50px;
 }
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  h3 {
-    margin: 10px;
-  }
+.form-event {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: groove 1px $primary-color;
+    padding-bottom: 20px;
+    h3{
+        margin: 10px;        
+    }
 
-  label {
-    text-align: left;
-    font-size: 20px;
-    margin-top: 20px;
-    line-height: 1.5em;
-  }
-  input,
-  textarea {
-    width: 90%;
-    margin: 5px;
-    font-size: medium;
-  }
-  .datepicker:after {
-    height: 80px;
-  }
+    label {
+      text-align: left;
+      font-size: 20px;
+      margin-top: 20px;
+      line-height: 1.5em;
+    }
+    input, textarea, select{
+        width: 90%;
+        margin: 5px;
+        height: 5vh;
+        font-size: medium;
+    }
 }
 
-.fc-view-container {
-  background-color: #682628;
-  color: white;
+@media screen and (min-width: 800px) {
+    .agendaSection{
+        padding: 40px;
+    }
+    .form-event {
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h3{
+            margin: 10px;        
+        }
+    
+        label {
+          text-align: left;
+          font-size: 20px;
+          margin-top: 20px;
+          line-height: 1.5em;
+        }
+        input, textarea, select{
+            width: 70vw;
+            margin: 5px;
+            height: 5vh;
+            font-size: medium;
+        }
+    }
 }
