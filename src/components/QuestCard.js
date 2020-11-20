@@ -19,7 +19,7 @@ const QuestCard = ({ questData }) => {
       <p className='quest-description'>Your Quest: {questData.questDetails}</p>
       <br />
       <h3>
-        <span className='reward-icon'></span>Reward: {questData.reward}.
+        <span className='reward-icon'></span> {questData.reward}
       </h3>
       <div className='button-details'>
         <Link to={`/quest/${questData.id}`}>More Infos</Link>
