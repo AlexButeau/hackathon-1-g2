@@ -1,12 +1,21 @@
 @import './global.scss';
 
 .mail {
-  margin: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 94vh;
+  background-image: url('../../images/AdobeStock_252754318.jpeg');
+  background-size: 300%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .title {
   color: $primary-color;
+  border-bottom: 1px solid $primary-color;
   margin: 5%;
+  padding-bottom: 10px;
   width: 50vh;
 }
 
