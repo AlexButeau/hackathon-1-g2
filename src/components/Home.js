@@ -40,7 +40,6 @@ const Home = () => {
 
       <Navbar />
       <QuestsList />
-      <QuestPost />
     </div>
   );
 };
