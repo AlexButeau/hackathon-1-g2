@@ -1,71 +1,61 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import './styles/Mail.scss';
 
 const Mail = (props) => {
   const [name, setName] = useState();
+  const [object, setObject] = useState();
+  const [message, setMessage] = useState();
   
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      email: '',
-      message: ''
-    }
-  }
 
-  handleSubmit(e){
+  const handleSubmit = (e) => {
     e.preventDefault();
-    axios({
-      method: "POST", 
-      url:"http://localhost:3002/send", 
-      data:  this.state
-    }).then((response)=>{
+    axios
+      .post(`http://localhost:3002/send`, {name: name, object: object, message: message}) 
+      .then((response)=>{
       if (response.data.status === 'success') {
         alert("Message Sent."); 
-        this.resetForm()
+        resetForm()
       } else if (response.data.status === 'fail') {
         alert("Message failed to send.")
       }
     })
   }
 
-  resetForm(){
-    this.setState({name: ‘’, email: ‘’, message: ‘’})
+  const resetForm = () => {
+    setName('');
+    setObject('');
+    setMessage('');
   }
-  
-  render() {
+
     return(
-      <div className="App">
-        <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+      <div className="mail">
+        <h1 className="title" >Communicate with your Knights</h1>
+        <form id="contact-form" onSubmit={handleSubmit} method="POST">
           <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input type="text" className="form-control" id="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
+              <label htmlFor="name"></label>
+              <select name="name" id="pet-select" value={name} onChange={e => setName(e.target.value)} >
+                  <option value="">--Please choose a Knight--</option>
+                  <option value="lancelot">Lancelot</option>
+                  <option value="perceval">Perceval</option>
+                  <option value="karadoc">Karadoc</option>
+                  <option value="leodagan">Leodagan</option>
+                  <option value="yvain">Yvain</option>
+                  <option value="gauvain">Gauvain</option>
+              </select>
           </div>
           <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Email address</label>
-              <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
+              <label htmlFor="object"></label>
+              <input type="text" className="form-control" id="text" placeholder="Object" value={object} onChange={e => setObject(e.target.value)} />
           </div>
           <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea className="form-control" rows="5" id="message" value={this.state.message} onChange={this.onMessageChange.bind(this)} />
+              <label htmlFor="message"></label>
+              <textarea className="form-control" rows="5" id="message" placeholder="Message" value={message} onChange={e => setMessage(e.target.value)} />
           </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className="submit" >Submit</button>
         </form>
       </div>
     );
-  }
-
-  onNameChange(event) {
-	  this.setState({name: event.target.value})
-  }
-
-  onEmailChange(event) {
-	  this.setState({email: event.target.value})
-  }
-
-  onMessageChange(event) {
-	  this.setState({message: event.target.value})
-  }
 }
 
 export default Mail;

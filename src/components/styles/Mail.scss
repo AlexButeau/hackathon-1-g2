@@ -1,0 +1,33 @@
+@import './global.scss';
+
+.mail {
+  margin: 2%;
+}
+
+.title {
+  color: $primary-color;
+  margin: 5%;
+  width: 50vh;
+}
+
+.form-group {
+  text-align: center;
+  width: 50vh;
+  margin-top: 5%;
+}
+
+.submit {
+  background-color: $primary-color;
+  border: none;
+  width: 50%;
+  height: 5vh;
+  text-align: center;
+  color: white;
+  &:active {
+    background-color: $secondary-color;
+  }
+  &:focus {
+    outline: 0;
+    background-color: $secondary-color;
+  }
+}
