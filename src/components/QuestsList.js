@@ -42,6 +42,7 @@ const QuestsList = () => {
 
   return (
     <div className='quests-list'>
+      <h1>Ongoing Quests</h1>
       <div className='filterContainer'>
         <p>Filter on : </p>
         <button className='filterBtn-on' onClick={handleFilter}>
@@ -60,7 +61,6 @@ const QuestsList = () => {
           Perceval
         </button>
       </div>
-      <h1>Ongoing Quests</h1>
       {quests.length > 0 ? (
         quests
           .filter((item) => {

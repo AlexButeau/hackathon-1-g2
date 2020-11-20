@@ -5,7 +5,7 @@ import FullCalendar from 'fullcalendar-reactwrapper';
 import QuestsList from './QuestsList';
 import axios from 'axios';
 import Navbar from './Navbar';
-import QuestPost from './QuestPost';
+
 import './styles/Home.scss';
 
 const Home = () => {
