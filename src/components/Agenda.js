@@ -4,12 +4,10 @@ import './styles/Agenda.scss';
 import axios from 'axios';
 import FullCalendar from 'fullcalendar-reactwrapper';
 
-// import PopupEvent from './PopupEvent';
 import 'reactjs-popup/dist/index.css';
 
 const Agenda = () => {
 
-    const [showPopup, setShowPopup] = useState(false);
     const [showWeekends, setShowWeekends] = useState(false);
     const [events, setEvents] = useState([]);
     const [titleEvent, setTitleEvent] = useState('');
@@ -52,10 +50,6 @@ const Agenda = () => {
           });
     }
 
-    // const showEvent = (event) => {
-    //     setShowPopup(true);
-    // }
-
 
     return (
     <>
@@ -75,7 +69,6 @@ const Agenda = () => {
                 <input type='submit' value='Convene' />
             </form>
         <div className="calendarSection">
-            {/* <PopupEvent props={showPopup}/> */}
             <FullCalendar
                 id="agenda"
                 header={{
@@ -86,7 +79,6 @@ const Agenda = () => {
                 defaultDate = {moment('0470-11-20')}
                 events={events}
                 editable= {true}
-                // eventClick={showEvent}
                 height={480}
                 selectable={true}
                 weekends={showWeekends}
