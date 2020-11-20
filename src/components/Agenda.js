@@ -66,7 +66,7 @@ const Agenda = () => {
                 </select>
                 <input className='datepicker' type='date' value={dateEvent} onChange={(e) => setDateEvent(e.target.value)}/>
                 <textarea value={commEvent} placeholder='Comment...' onChange={(e) => setCommEvent(e.target.value)}/>
-                <input type='submit' value='Convene' />
+                <input type='submit' value='Convene' class='convene' />
             </form>
         <div className="calendarSection">
             <FullCalendar
@@ -79,7 +79,7 @@ const Agenda = () => {
                 defaultDate = {moment('0470-11-20')}
                 events={events}
                 editable= {true}
-                height={480}
+                height={550}
                 selectable={true}
                 weekends={showWeekends}
             />
