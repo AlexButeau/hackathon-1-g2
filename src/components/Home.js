@@ -29,7 +29,7 @@ const Home = () => {
         <FullCalendar
           id='agenda'
           header={{
-            left: 'month,basicWeek  ',
+            left: 'month,basicWeek',
             center: '',
             right: 'prev,next',
           }}
