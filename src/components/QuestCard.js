@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/QuestCard.scss';
+import { Link } from 'react-router-dom';
 
 const QuestCard = ({ questData }) => {
   return (
@@ -20,9 +21,9 @@ const QuestCard = ({ questData }) => {
       <h3>
         <span className='reward-icon'></span>Reward: {questData.reward}.
       </h3>
-      {/*     <div className="button-details">
+      <div className='button-details'>
         <Link to={`/quest/${questData.id}`}>More Infos</Link>
-      </div> */}
+      </div>
     </div>
   );
 };

@@ -32,6 +32,7 @@ const QuestsList = () => {
       <h1>Ongoing Quests</h1>
       {quests.length > 0 ? (
         quests
+          .filter((item) => item.name !== '')
           .sort((a, b) => {
             return b.value - a.value;
           })
