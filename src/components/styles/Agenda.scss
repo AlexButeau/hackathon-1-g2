@@ -1,8 +1,10 @@
+@import './global.scss';
 @import '~fullcalendar-reactwrapper/dist/css/fullcalendar.min.css';
 
-h2{
+h1{
     text-align: center;
-    margin: 10px; 
+    margin: 5%; 
+    color: $primary-color;
 }
 .agendaSection{
     padding: 10px;

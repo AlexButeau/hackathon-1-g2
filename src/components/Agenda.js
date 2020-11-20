@@ -45,7 +45,7 @@ const Agenda = () => {
     return (
     <>
     <div className='agendaSection'>
-        <h2>Meetings with the knights</h2>
+        <h1>Meetings with the knights</h1>
         <div className="calendarSection">
             <FullCalendar
                 id="agenda"
