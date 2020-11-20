@@ -8,10 +8,13 @@ h1{
     border-bottom: groove 1px $primary-color;
     padding: 10px;
 }
-.agendaSection{
-    padding: 10px;
-    overflow-y: auto;
-    margin-bottom: 80px;
+.agendaSection {
+  padding: 10px;
+  background-image: url('../../images/AdobeStock_252754318.jpeg');
+  overflow-y: auto;
+
+  color: black;
+  margin-bottom: 50px;
 }
 .form-event {
     margin: 20px;

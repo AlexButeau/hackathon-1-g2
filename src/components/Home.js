@@ -7,7 +7,7 @@ import axios from 'axios';
 import Navbar from './Navbar';
 
 import './styles/Home.scss';
-import Knights from './Knights';
+// import Knights from './Knights';
 
 const Home = () => {
   const [showWeekends, setShowWeekends] = useState(false);
@@ -33,7 +33,7 @@ const Home = () => {
             center: '',
             right: 'prev,next',
           }}
-          defaultDate={moment('0470-11-20')} // caution, i had to remove the .format to make it work on chrome
+          defaultDate={moment('0470-11-20').format('YYYY-MM-DD')}
           events={events}
           navLinks={true} // can click day/week names to navigate views
           editable={true}
@@ -44,7 +44,7 @@ const Home = () => {
         />
         <label>Weekends : </label><input type='checkbox' checked={showWeekends} onChange={toggleWeekends}/>
       </div>
-      <Knights />
+      {/* <Knights /> */}
       <Navbar />
       <QuestsList />
     </div>

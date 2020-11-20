@@ -1,0 +1,63 @@
+@import './global.scss';
+
+.mail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 94vh;
+  background-image: url('../../images/AdobeStock_252754318.jpeg');
+  background-size: 300%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.title {
+  color: $primary-color;
+  border-bottom: 1px solid $primary-color;
+  margin: 5%;
+  padding-bottom: 10px;
+  width: 50vh;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  width: 50vh;
+  margin-top: 5%;
+}
+
+.knight {
+  text-align: center;
+  width: 50vh;
+  height: 5vh;
+  margin-top: 5vh;
+}
+
+.email {
+  text-align: center;
+  width: 50vh;
+  height: 5vh;
+}
+
+.message {
+  text-align: center;
+  width: 50vh;
+  height: 15vh;
+}
+
+.submit {
+  background-color: $primary-color;
+  border: none;
+  width: 50%;
+  height: 5vh;
+  margin-top: 5vh;
+  text-align: center;
+  color: white;
+  &:active {
+    background-color: $secondary-color;
+  }
+  &:focus {
+    outline: 0;
+    background-color: $secondary-color;
+  }
+}

@@ -16,7 +16,7 @@ class Navbar extends Component {
           <Link to='/questlist'>
             <div className='questIcon' />
           </Link>
-          <Link to='/contact'>
+          <Link to='/mail'>
             <div className='contactIcon' />
           </Link>
         </ul>

@@ -5,7 +5,6 @@ import './styles/QuestsList.scss';
 
 const QuestsList = () => {
   const [quests, setQuests] = useState([]);
-  const [isFiltered, setIsFiltered] = useState(false);
   const [chevaliers, setChevaliers] = useState([]);
 
   useEffect(() => {
@@ -29,29 +28,12 @@ const QuestsList = () => {
       });
   }, []);
 
-  // const handleFilter = (e) => {
-  //   if (e.target.className !== 'filterBtn-on') {
-  //     e.target.className = 'filterBtn-on';
-  //   } else {
-  //     e.target.className = 'filterBtn-off';
-  //   }
-  //   console.log(e.target.className);
-  //   setChevalier(e.target.innerText);
-  //   setIsFiltered(!isFiltered);
-  // };
-
   const handleFilter = (target) => {
     if (chevaliers.includes(target.id)) {
       let newChevaliers = chevaliers.filter((item) => item !== target.id);
       setChevaliers(newChevaliers);
     } else {
       setChevaliers((prevState) => [...prevState, target.id]);
-    }
-
-    if (chevaliers.length > 0) {
-      setIsFiltered(() => true);
-    } else {
-      setIsFiltered(() => false);
     }
 
     if (target.className !== 'filterBtn-on') {
@@ -81,11 +63,18 @@ const QuestsList = () => {
           Gauvain
         </button>
         <button
-          id='Bohort'
+          id='Yvain'
           className='filterBtn-on'
           onClick={(e) => handleFilter(e.target)}
         >
-          Bohort
+          Yvain
+        </button>
+        <button
+          id='Leodagan'
+          className='filterBtn-on'
+          onClick={(e) => handleFilter(e.target)}
+        >
+          Leodagan
         </button>
         <button
           id='Karadok'
@@ -105,7 +94,6 @@ const QuestsList = () => {
       {quests.length > 0 ? (
         quests
           .filter((item) => {
-            console.log(item.assignment.label);
             if (chevaliers.length > 0) {
               console.log(chevaliers.indexOf(item.assignment.label));
               if (chevaliers.indexOf(item.assignment.label) >= 0) {

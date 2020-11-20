@@ -1,99 +1,124 @@
 import React, { useState, useEffect } from 'react';
 import './styles/QuestPost.scss';
-import { useForm, Controller } from "react-hook-form";
-import Select from "react-select";
-import axios from "axios";
-
+import { useForm, Controller } from 'react-hook-form';
+import Select from 'react-select';
+import axios from 'axios';
 
 function QuestPost() {
   const [quest, setQuest] = useState([]);
   // const { register, handleSubmit, reset: resetForm } = useForm([{toto: "tata"}]);
-  const {control, register, handleSubmit, reset: resetForm } = useForm();
+  const { control, register, handleSubmit, reset: resetForm } = useForm();
 
   const onSubmit = (data) => {
     console.log(JSON.stringify(data));
     axios
-    .post(`https://kaamelot-server.herokuapp.com/quests?apiKey=${window.apiKey}`, data)
-    .then((res) => res.data)
-    .then((newQuest) => {
-      setQuest((oldList) => [...oldList, newQuest]);
-      console.log(data)
-      resetForm();
-    })
-    .catch(console.error);
-  }
+      .post(
+        `https://kaamelot-server.herokuapp.com/quests?apiKey=${window.apiKey}`,
+        data
+      )
+      .then((res) => res.data)
+      .then((newQuest) => {
+        setQuest((oldList) => [...oldList, newQuest]);
+        console.log(data);
+        resetForm();
+      })
+      .catch(console.error);
+  };
 
   useEffect(() => {
     axios
-      .get("https://kaamelot-server.herokuapp.com/quests")
+      .get('https://kaamelot-server.herokuapp.com/quests')
       .then((res) => res.data)
       .then(setQuest);
   }, []);
 
-  
-  return(
-    <div className="post">
-      <h1 className="title" >Add Quest</h1>
+  return (
+    <div className='post'>
+      <h1 className='title'>Add Quest</h1>
       <br />
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        <div className="questTitle">
-          <label htmlFor="name"></label>
-            <input name="name" required placeholder="Quest's Title" ref={register}/>
+      <form className='form' onSubmit={handleSubmit(onSubmit)}>
+        <div className='questTitle'>
+          <label htmlFor='name'></label>
+          <input
+            name='name'
+            required
+            placeholder="Quest's Title"
+            ref={register}
+          />
         </div>
         <br />
-        <div className="location">
-          <label htmlFor="localization"></label>
-          <input name="localization" required placeholder="Location" ref={register}/>
+        <div className='location'>
+          <label htmlFor='localization'></label>
+          <input
+            name='localization'
+            required
+            placeholder='Location'
+            ref={register}
+          />
         </div>
         <br />
+
         <div className="assignment">
             <Controller
               name="assignment"
               as={Select}
               options={[
+                { label: "Bohort" },
+                { label: "Calogrenant" },
+                { label: "Galessin" },
+                { label: "Gauvain" },
+                { label: "Karadoc" },
                 { label: "Lancelot" },
-                { label: "Perceval" },
-                { label: "karadoc" },
                 { label: "Leodagan" },
-                { label: "Yvain" },
-                { label: "Gauvain" }
+                { label: "Perceval" },
+                { label: "Yvain" }
               ]}
               control={control}
               rules={{ required: true }}
         />
         </div>
         <br />
-        <div className="value">
-        <Controller
-              name="value"
-              as={Select}
-              options={[
-                { label: "easy", value: "1" },
-                { label: "medium", value: "2" },
-                { label: "hard", value: "3" },
-                { label: "warrior", value: "4" },
-                { label: "You gonna die !", value: "5" }
-              ]}
-              control={control}
-              rules={{ required: true }}
-        />
+        <div className='value'>
+          <br />
+          <Controller
+            name='value'
+            as={Select}
+            options={[
+              { label: 'Easy', value: '1' },
+              { label: 'Medium', value: '2' },
+              { label: 'Hard', value: '3' },
+              { label: 'Warrior', value: '4' },
+              { label: "You're gonna die !", value: '5' },
+            ]}
+            control={control}
+            rules={{ required: true }}
+          />
         </div>
         <br />
-        <div className="reward">
-          <label htmlFor="reward"></label>
-          <textarea name="reward" required placeholder="Reward" ref={register}></textarea>
+        <div className='reward'>
+          <label htmlFor='reward'></label>
+          <textarea
+            name='reward'
+            required
+            placeholder='Reward'
+            ref={register}
+          ></textarea>
         </div>
         <br />
-        <div className="questDetails">
-          <label htmlFor="questDetails"></label>
-          <textarea name="questDetails" required placeholder="Quest's Description" ref={register}></textarea>
+        <div className='questDetails'>
+          <label htmlFor='questDetails'></label>
+          <textarea
+            name='questDetails'
+            required
+            placeholder="Quest's Description"
+            ref={register}
+          ></textarea>
         </div>
         <br />
-        <input type="submit" className="add" placeholder="add" />
+        <input type='submit' className='add' placeholder='add' />
       </form>
     </div>
-  )
+  );
 }
-
 
 export default QuestPost;

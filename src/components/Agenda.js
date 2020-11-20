@@ -7,9 +7,9 @@ import FullCalendar from 'fullcalendar-reactwrapper';
 import 'reactjs-popup/dist/index.css';
 
 const Agenda = () => {
+  const [events, setEvents] = useState([]);
 
     const [showWeekends, setShowWeekends] = useState(false);
-    const [events, setEvents] = useState([]);
     const [titleEvent, setTitleEvent] = useState('');
     const [knights, setKnights] = useState([]);
     const [knightAssignedEvent, setKnightAssignedEvent] = useState('');
@@ -53,7 +53,7 @@ const Agenda = () => {
 
     return (
     <>
-    <div className='agendaSection'>
+      <div className='agendaSection'>
         <h1>Meetings with the knights</h1>
         <form className='form-event' onSubmit={(e)=>conveneKnights(e)} >
                 <h3>Convene Knights :</h3>
@@ -86,9 +86,10 @@ const Agenda = () => {
             <label>Weekends : </label><input type='checkbox' checked={showWeekends} onChange={toggleWeekends}/>
         </div>
         
-        </div>
-        </>
-    );
-}
+        
+      </div>
+    </>
+  );
+};
 
 export default Agenda;
