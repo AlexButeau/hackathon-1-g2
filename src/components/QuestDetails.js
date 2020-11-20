@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './styles/QuestDetails.scss';
+import Navbar from './Navbar';
 
 const QuestDetails = (props) => {
   const id = props.match.params.id; // recuperer l'id depuis les params d'url
@@ -45,12 +47,12 @@ const QuestDetails = (props) => {
     if (formActive) {
       axios
         .put(
-          `https://kaamelot-server.herokuapp.com/quest/?id=${quest.id}&apiKey=${apiKey}`,
+          `https://kaamelot-server.herokuapp.com/quest?id=${quest.id}&apiKey=${apiKey}`,
           quest
         )
         .then((res) => res.data)
-        .then((newQuest) => {
-          setQuest(newQuest);
+        .then((data) => {
+          setQuest(data.find((item) => item.id.toString() === id));
         });
     }
 
@@ -59,12 +61,13 @@ const QuestDetails = (props) => {
 
   return (
     <div className='page'>
+      <div className='back-home'>
+        <Link to={`/home`}>Back to homepage</Link>
+      </div>
       {quest.name !== '' && formActive === false && (
         <div className='quest-details'>
-          <div className='title'>
-            <h2>{quest.name}</h2>
-            <p>{quest.assignment.label}</p>
-          </div>
+          <h2>{quest.name}</h2>
+          <p className='assign'>{quest.assignment.label}</p>
           <p className='localization'>
             <span className='pin'></span> {quest.localization}
           </p>
@@ -80,39 +83,40 @@ const QuestDetails = (props) => {
       )}
       {formActive === true && (
         <div className='update-form'>
-          <div className='title'>
-            <input
-              type='text'
-              value={quest.name}
-              onChange={(e) =>
-                setQuest((prevQuest) => {
-                  return { ...prevQuest, name: e.target.value };
-                })
-              }
-            />
-            <br />
-            <select
-              name='assignment'
-              id='knight-select'
-              value={quest.assignment.label}
-              onChange={(e) =>
-                setQuest((prevQuest) => {
-                  return {
-                    ...prevQuest,
-                    assignment: { label: e.target.value },
-                  };
-                })
-              }
-            >
-              <option value=''>--Please choose an option--</option>
-              <option value='Lancelot'>Lancelot</option>
-              <option value='Perceval'>Perceval</option>
-              <option value='Karadoc'>Karadoc</option>
-              <option value='Leodagan'>Leodagan</option>
-              <option value='Yvain'>Yvain</option>
-              <option value='Gauvain'>Gauvain</option>
-            </select>
-          </div>
+          <input
+            className='title'
+            type='text'
+            value={quest.name}
+            onChange={(e) =>
+              setQuest((prevQuest) => {
+                return { ...prevQuest, name: e.target.value };
+              })
+            }
+          />
+          <br />
+          <p className='assign'>Assign a new knight:</p>
+          <select
+            name='assignment'
+            id='knight-select'
+            value={quest.assignment.label}
+            onChange={(e) =>
+              setQuest((prevQuest) => {
+                return {
+                  ...prevQuest,
+                  assignment: { label: e.target.value },
+                };
+              })
+            }
+          >
+            <option value=''>--Please choose an option--</option>
+            <option value='Lancelot'>Lancelot</option>
+            <option value='Perceval'>Perceval</option>
+            <option value='Karadoc'>Karadoc</option>
+            <option value='Leodagan'>Leodagan</option>
+            <option value='Yvain'>Yvain</option>
+            <option value='Gauvain'>Gauvain</option>
+          </select>
+
           <p className='localization'>
             <span className='pin'></span>{' '}
             <input
@@ -142,7 +146,7 @@ const QuestDetails = (props) => {
             />{' '}
           </p>
           <br />
-          <p>
+          <div className='custom-select'>
             <select
               name='status'
               id='status-select'
@@ -158,42 +162,39 @@ const QuestDetails = (props) => {
             >
               <option value=''>--Please choose an option--</option>
               <option value='completed'>Completed</option>
-              <option value='progress'>In progree</option>
+              <option value='progress'>In progress</option>
             </select>
-          </p>
+          </div>
           <br />
-          <p className='quest-description'>
-            Your Quest:{' '}
-            <textarea
-              name='details'
-              required
-              value={quest.questDetails}
-              onChange={(e) =>
-                setQuest((prevQuest) => {
-                  return { ...prevQuest, questDetails: e.target.value };
-                })
-              }
-            ></textarea>
-          </p>
+          <p className='quest-description'>Your Quest: </p>
+          <textarea
+            name='details'
+            required
+            value={quest.questDetails}
+            onChange={(e) =>
+              setQuest((prevQuest) => {
+                return { ...prevQuest, questDetails: e.target.value };
+              })
+            }
+          ></textarea>
           <br />
-          <h3>
-            Reward:{' '}
-            <textarea
-              name='reward'
-              required
-              value={quest.reward}
-              onChange={(e) =>
-                setQuest((prevQuest) => {
-                  return { ...prevQuest, reward: e.target.value };
-                })
-              }
-            ></textarea>
-          </h3>
+          <p className='reward'>Reward: </p>
+          <textarea
+            name='reward'
+            required
+            value={quest.reward}
+            onChange={(e) =>
+              setQuest((prevQuest) => {
+                return { ...prevQuest, reward: e.target.value };
+              })
+            }
+          ></textarea>
         </div>
       )}
       <div className='button-update' onClick={handleFormRender}>
         {!formActive ? 'Update this quest' : 'Save changes'}
       </div>
+      <Navbar />
     </div>
   );
 };
