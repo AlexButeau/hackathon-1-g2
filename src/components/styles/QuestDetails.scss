@@ -6,6 +6,7 @@
   align-items: center;
   font-size: 18px;
   position: relative;
+  margin-bottom: 100px;
 
   .back-home {
     position: absolute;
@@ -69,8 +70,16 @@
   }
 
   .quest-description {
-    margin-top: 5px;
+    margin-top: 10px;
     line-height: 1.5em;
+    padding: 8px;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+  }
+
+  h3 {
+    margin-top: 10px;
+    text-align: center;
   }
 
   .button-update {
@@ -88,7 +97,9 @@
   }
 
   .update-form {
-    margin-top: 30px;
+    width: 80%;
+    max-width: 800px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -135,8 +146,8 @@
     textarea {
       margin-top: 5px;
       resize: none;
-      width: 600px;
-      height: 120px;
+      width: 280px;
+      height: 150px;
       padding: 6px;
       border-radius: 10px;
       line-height: 1.5em;
@@ -166,3 +177,16 @@
     }
   }
 }
+
+@media screen and (min-width: 700px) {
+  textarea {
+    margin-top: 5px;
+    resize: none;
+    width: 600px;
+    height: 120px;
+    padding: 6px;
+    border-radius: 10px;
+    line-height: 1.5em;
+    border: 1px solid darkgray;
+  }
+} ;
