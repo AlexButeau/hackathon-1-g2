@@ -16,7 +16,7 @@ const QuestCard = ({ questData }) => {
         <span className='pin'></span> {questData.localization}
       </p>
       <br />
-      <p className='quest-description'>Your Quest: {questData.questDetails}</p>
+      <p className='quest-description'></p>
       <br />
       <h3>
         <span className='reward-icon'></span> {questData.reward}
