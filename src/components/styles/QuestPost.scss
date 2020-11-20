@@ -18,6 +18,8 @@
 }
 .title {
   color: $primary-color;
+  border-bottom: 1px solid $primary-color;
+  padding-bottom: 10px;
   margin-bottom: 5%;
 }
 
@@ -45,7 +47,7 @@
 }
 
 .assignment {
-  width: 100%;
+  width: 70vw;
   height: 5vh;
   text-align: center;
   border-radius: 5px;
@@ -54,17 +56,18 @@
 }
 
 .value {
-  width: 100%;
+  width: 70vw;
   height: 5vh;
   text-align: center;
+  
 }
 
 .reward textarea {
   text-align: center;
   width: 70vw;
   resize: none;
-  margin: 0;
-  margin-top: 4git0px;
+  margin: 5px;
+  margin-top: 40px;
   height: 60px;
   padding: 6px;
   border-radius: 5px;
