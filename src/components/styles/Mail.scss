@@ -1,12 +1,17 @@
 @import './global.scss';
 
 .mail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 2%;
 }
 
 .title {
   color: $primary-color;
+  border-bottom: 1px solid $primary-color;
   margin: 5%;
+  padding-bottom: 10px;
   width: 50vh;
 }
 
