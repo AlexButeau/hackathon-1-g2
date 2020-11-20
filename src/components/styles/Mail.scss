@@ -1,0 +1,54 @@
+@import './global.scss';
+
+.mail {
+  margin: 2%;
+}
+
+.title {
+  color: $primary-color;
+  margin: 5%;
+  width: 50vh;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  width: 50vh;
+  margin-top: 5%;
+}
+
+.knight {
+  text-align: center;
+  width: 50vh;
+  height: 5vh;
+  margin-top: 5vh;
+}
+
+.email {
+  text-align: center;
+  width: 50vh;
+  height: 5vh;
+}
+
+.message {
+  text-align: center;
+  width: 50vh;
+  height: 15vh;
+}
+
+.submit {
+  background-color: $primary-color;
+  border: none;
+  width: 50%;
+  height: 5vh;
+  margin-top: 5vh;
+  text-align: center;
+  color: white;
+  &:active {
+    background-color: $secondary-color;
+  }
+  &:focus {
+    outline: 0;
+    background-color: $secondary-color;
+  }
+}

@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Agenda from './components/Agenda';
 import LoginPage from './components/LoginPage';
 import QuestDetails from './components/QuestDetails';
+import Mail from './components/Mail';
 import Navbar from './components/Navbar';
 import QuestPage from './components/QuestPage';
 
@@ -18,6 +19,7 @@ function App() {
           <Route exact path='/agenda' component={Agenda} />
           <Route exact path='/questlist' component={QuestPage} />
           <Route path='/quest/:id' component={QuestDetails} />
+          <Route exact path='/mail' component={Mail} />
         </Switch>
 
         <Navbar />
