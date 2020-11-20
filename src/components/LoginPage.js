@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import coatOfArms from '../images/coat-of-arms.png';
+// import coatOfArms from '../images/kaamelott@3x.png';
 import './styles/LoginPage.scss';
 
 const LoginPage = (props) => {
@@ -15,9 +15,8 @@ const LoginPage = (props) => {
 
   return (
     <div className='login-page'>
-      <img
+      <div
         className='coat-of-arms'
-        src={coatOfArms}
         alt='a drawing of a coat of arms'
       />
       <form onSubmit={handleSubmit}>
