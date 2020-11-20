@@ -4,7 +4,12 @@ import './styles/Agenda.scss';
 import axios from 'axios';
 import FullCalendar from 'fullcalendar-reactwrapper';
 
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 const Agenda = () => {
+
+    const [showPopup, setShowPopup] = useState(false);
     const [events, setEvents] = useState([]);
     const [titleEvent, setTitleEvent] = useState('');
     const [knightAssignedEvent, setKnightAssignedEvent] = useState('');
@@ -15,19 +20,25 @@ const Agenda = () => {
         axios.get("https://kaamelot-server.herokuapp.com/agenda")
             .then((res) => res.data)
             .then((data)=>{
-                console.log(data);
                 setEvents(data);
             });
-    },[])
+    },[]);
 
     const conveneKnights = () => {
+        const title = titleEvent + ' ' + knightAssignedEvent;
         axios.post('https://kaamelot-server.herokuapp.com/agenda', {
-            title: titleEvent,
-            start: dateEvent
+            title: title,
+            start: dateEvent 
           })
           .then(function (response) {
             setEvents(response.data);
-          })
+          });
+    }
+
+    const showEvent = (title) => {
+        // return (<Popup trigger={<button> Trigger</button>} position="right center">
+        //     <div>{title}</div>
+        // </Popup>);
     }
 
 
@@ -39,11 +50,13 @@ const Agenda = () => {
             <FullCalendar
                 id="agenda"
                 header={{
+                    left: 'month,basicWeek,basicDay',
                     center: '',
                     right: 'prev,next'
                 }}
                 defaultDate = {moment('470-11-20').format('YYYY-MM-DD')}
                 events={events}
+                // eventClick={(e) => showEvent(e.title)}
                 navLinks= {true} // can click day/week names to navigate views
                 editable= {true}
                 height={480}

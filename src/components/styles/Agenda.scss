@@ -6,6 +6,8 @@ h2{
 }
 .agendaSection{
     padding: 10px;
+    overflow-y: auto;
+    margin-bottom: 80px;
 }
 form {
     display: flex;

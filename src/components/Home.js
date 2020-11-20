@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import moment from 'moment';
-import './styles/Agenda.scss'
+import './styles/Agenda.scss';
 import FullCalendar from 'fullcalendar-reactwrapper';
 import QuestsList from './QuestsList';
 import axios from 'axios';
@@ -14,17 +14,16 @@ const Home = () => {
           axios.get("https://kaamelot-server.herokuapp.com/agenda")
               .then((res) => res.data)
               .then((data)=>{
-                  console.log(data);
                   setEvents(data);
               });
       },[]);
   return (
     <div className='home'>
-
       <div className='agendaSection'>
       <FullCalendar
             id="agenda"
             header={{
+              left: 'month,basicWeek,basicDay',
               center: '',
               right: 'prev,next'
             }}
@@ -33,16 +32,14 @@ const Home = () => {
             navLinks={true} // can click day/week names to navigate views
             editable={true}
             height={450}
-            today={false}
             selectable={true}
             eventLimit={true} // allow "more" link when too many events
         />
-        </div>
+      </div>
 
       <Navbar />
- <QuestsList />
+      <QuestsList />
       <QuestPost />
-
     </div>
   );
 };
