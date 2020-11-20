@@ -24,10 +24,11 @@
     align-items: center;
     width: 80%;
     max-width: 800px;
+    margin-top: 40px;
 
     h2 {
-      margin-top: 20px;
       text-transform: uppercase;
+      text-align: center;
       font-weight: 700;
       color: $primary-color;
       font-family: $secondary-font-family;

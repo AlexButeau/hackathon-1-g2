@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './styles/QuestDetails.scss';
 import Navbar from './Navbar';
+import Rating from 'react-rating';
+import empty from '../images/quest.png';
+import full from '../images/quest.png';
 
 const QuestDetails = (props) => {
   const id = props.match.params.id; // recuperer l'id depuis les params d'url
@@ -75,6 +78,31 @@ const QuestDetails = (props) => {
           <p>Difficulty: {quest.value} </p>
           <br />
           <p>{quest.state ? 'Completed' : 'In progress'} </p>
+          <Rating
+            initialRating={+quest.value}
+            emptySymbol={
+              <img
+                src={empty}
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  backgroundColor: 'darkgrey',
+                }}
+                className='icon'
+              />
+            }
+            fullSymbol={
+              <img
+                src={full}
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  backgroundColor: 'darkgrey',
+                }}
+                className='icon'
+              />
+            }
+          />
           <br />
           <p className='quest-description'>Your Quest: {quest.questDetails}</p>
           <br />
