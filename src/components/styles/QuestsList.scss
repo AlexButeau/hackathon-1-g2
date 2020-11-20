@@ -2,6 +2,7 @@
 
 .quests-list {
   display: flex;
+  background-image: url('../../images/AdobeStock_252754318.jpeg');
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -44,6 +45,7 @@
 .filterContainer {
   border: 1px solid lightgrey;
   padding: 10px;
+  background-color: white;
   margin-left: 10px;
   margin-top: 20px;
   position: relative;
@@ -51,4 +53,8 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   color: #323232;
+}
+
+.quest-list-page {
+  background-image: url('../../images/AdobeStock_252754318.jpeg');
 }
