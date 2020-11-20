@@ -6,7 +6,7 @@ import './styles/QuestsList.scss';
 const QuestsList = () => {
   const [quests, setQuests] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
-  const [chevalier, setChevalier] = useState('Lancelot');
+  const [chevaliers, setChevaliers] = useState([]);
 
   useEffect(() => {
     const CancelToken = axios.CancelToken;
@@ -29,15 +29,36 @@ const QuestsList = () => {
       });
   }, []);
 
-  const handleFilter = (e) => {
-    if (e.target.className !== 'filterBtn-on') {
-      e.target.className = 'filterBtn-on';
+  // const handleFilter = (e) => {
+  //   if (e.target.className !== 'filterBtn-on') {
+  //     e.target.className = 'filterBtn-on';
+  //   } else {
+  //     e.target.className = 'filterBtn-off';
+  //   }
+  //   console.log(e.target.className);
+  //   setChevalier(e.target.innerText);
+  //   setIsFiltered(!isFiltered);
+  // };
+
+  const handleFilter = (target) => {
+    if (chevaliers.includes(target.id)) {
+      let newChevaliers = chevaliers.filter((item) => item !== target.id);
+      setChevaliers(newChevaliers);
     } else {
-      e.target.className = 'filterBtn-off';
+      setChevaliers((prevState) => [...prevState, target.id]);
     }
-    console.log(e.target.className);
-    setChevalier(e.target.innerText);
-    setIsFiltered(!isFiltered);
+
+    if (chevaliers.length > 0) {
+      setIsFiltered(() => true);
+    } else {
+      setIsFiltered(() => false);
+    }
+
+    if (target.className !== 'filterBtn-on') {
+      target.className = 'filterBtn-on';
+    } else {
+      target.className = 'filterBtn-off';
+    }
   };
 
   return (
@@ -45,26 +66,56 @@ const QuestsList = () => {
       <h1>Ongoing Quests</h1>
       <div className='filterContainer'>
         <p>Filter on : </p>
-        <button className='filterBtn-on' onClick={handleFilter}>
+        <button
+          id='Lancelot'
+          className='filterBtn-on'
+          onClick={(e) => handleFilter(e.target)}
+        >
           Lancelot
         </button>
-        <button className='filterBtn-on' onClick={handleFilter}>
-          Govin
+        <button
+          id='Gauvain'
+          className='filterBtn-on'
+          onClick={(e) => handleFilter(e.target)}
+        >
+          Gauvain
         </button>
-        <button className='filterBtn-on' onClick={handleFilter}>
+        <button
+          id='Bohort'
+          className='filterBtn-on'
+          onClick={(e) => handleFilter(e.target)}
+        >
           Bohort
         </button>
-        <button className='filterBtn-on' onClick={handleFilter}>
+        <button
+          id='Karadok'
+          className='filterBtn-on'
+          onClick={(e) => handleFilter(e.target)}
+        >
           Karadok
         </button>
-        <button className='filterBtn-on' onClick={handleFilter}>
+        <button
+          id='Perceval'
+          className='filterBtn-on'
+          onClick={(e) => handleFilter(e.target)}
+        >
           Perceval
         </button>
       </div>
       {quests.length > 0 ? (
         quests
           .filter((item) => {
-            return !isFiltered || item.assignment.label === chevalier;
+            console.log(item.assignment.label);
+            if (chevaliers.length > 0) {
+              console.log(chevaliers.indexOf(item.assignment.label));
+              if (chevaliers.indexOf(item.assignment.label) >= 0) {
+                return true;
+              } else {
+                return false;
+              }
+            } else {
+              return true;
+            }
           })
           .filter((item) => item.name !== '')
           .sort((a, b) => {
