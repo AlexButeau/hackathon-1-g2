@@ -7,7 +7,7 @@ import axios from 'axios';
 import Navbar from './Navbar';
 
 import './styles/Home.scss';
-import Knights from './Knights';
+// import Knights from './Knights';
 
 const Home = () => {
   const [events, setEvents] = useState([]);
@@ -38,7 +38,7 @@ const Home = () => {
           eventLimit={true} // allow "more" link when too many events
         />
       </div>
-      <Knights />
+      {/* <Knights /> */}
       <Navbar />
       <QuestsList />
     </div>

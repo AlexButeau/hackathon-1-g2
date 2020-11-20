@@ -63,11 +63,18 @@ const QuestsList = () => {
           Gauvain
         </button>
         <button
-          id='Bohort'
+          id='Yvain'
           className='filterBtn-on'
           onClick={(e) => handleFilter(e.target)}
         >
-          Bohort
+          Yvain
+        </button>
+        <button
+          id='Leodagan'
+          className='filterBtn-on'
+          onClick={(e) => handleFilter(e.target)}
+        >
+          Leodagan
         </button>
         <button
           id='Karadok'
@@ -87,7 +94,6 @@ const QuestsList = () => {
       {quests.length > 0 ? (
         quests
           .filter((item) => {
-            console.log(item.assignment.label);
             if (chevaliers.length > 0) {
               console.log(chevaliers.indexOf(item.assignment.label));
               if (chevaliers.indexOf(item.assignment.label) >= 0) {
