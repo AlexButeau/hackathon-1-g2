@@ -29,7 +29,7 @@ const Home = () => {
             center: '',
             right: 'prev,next',
           }}
-          defaultDate={moment('0470-11-20')} // caution, i had to remove the .format to make it work on chrome
+          defaultDate={moment('0470-11-20').format('YYYY-MM-DD')}
           events={events}
           navLinks={true} // can click day/week names to navigate views
           editable={true}
