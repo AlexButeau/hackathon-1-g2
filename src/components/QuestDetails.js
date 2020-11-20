@@ -4,8 +4,8 @@ import axios from 'axios';
 import './styles/QuestDetails.scss';
 import Navbar from './Navbar';
 import Rating from 'react-rating';
-import empty from '../images/quest.png';
-import full from '../images/quest.png';
+import empty from '../images/empty.png';
+import full from '../images/full.png';
 
 const QuestDetails = (props) => {
   const id = props.match.params.id; // recuperer l'id depuis les params d'url
@@ -75,34 +75,45 @@ const QuestDetails = (props) => {
             <span className='pin'></span> {quest.localization}
           </p>
           <br />
-          <p>Difficulty: {quest.value} </p>
+          <div>
+            Difficulty: {quest.value}{' '}
+            <Rating
+              initialRating={parseInt(quest.value)}
+              onClick={() => {}}
+              readonly={true}
+              quiet={true}
+              emptySymbol={
+                // eslint-disable-next-line jsx-a11y/alt-text
+                <img
+                  src={empty}
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    marginRight: '2px',
+                  }}
+                  className='icon'
+                />
+              }
+              fullSymbol={
+                // eslint-disable-next-line jsx-a11y/alt-text
+                <img
+                  src={full}
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    marginRight: '2px',
+                  }}
+                  className='icon'
+                />
+              }
+            />
+          </div>
           <br />
-          <p>{quest.state ? 'Completed' : 'In progress'} </p>
-          <Rating
-            initialRating={+quest.value}
-            emptySymbol={
-              <img
-                src={empty}
-                style={{
-                  width: '20px',
-                  height: '20px',
-                  backgroundColor: 'darkgrey',
-                }}
-                className='icon'
-              />
-            }
-            fullSymbol={
-              <img
-                src={full}
-                style={{
-                  width: '20px',
-                  height: '20px',
-                  backgroundColor: 'darkgrey',
-                }}
-                className='icon'
-              />
-            }
-          />
+          <p
+            style={{ fontStyle: 'italic', fontSize: '14px', marginTop: '5px' }}
+          >
+            {quest.state ? 'Completed' : 'In progress'}{' '}
+          </p>
           <br />
           <p className='quest-description'>Your Quest: {quest.questDetails}</p>
           <br />
