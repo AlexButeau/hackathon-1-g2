@@ -10,7 +10,6 @@ const Knights = () => {
       .then((res) => res.data)
       .then((data) => {
         setAllKnights(data);
-        console.log(allKnights);
       });
   }, []);
   return (

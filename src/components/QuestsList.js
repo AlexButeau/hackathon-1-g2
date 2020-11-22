@@ -95,7 +95,6 @@ const QuestsList = () => {
         quests
           .filter((item) => {
             if (chevaliers.length > 0) {
-              console.log(chevaliers.indexOf(item.assignment.label));
               if (chevaliers.indexOf(item.assignment.label) >= 0) {
                 return true;
               } else {

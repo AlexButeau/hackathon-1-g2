@@ -6,20 +6,18 @@ import axios from 'axios';
 
 function QuestPost() {
   const [quest, setQuest] = useState([]);
-  // const { register, handleSubmit, reset: resetForm } = useForm([{toto: "tata"}]);
   const { control, register, handleSubmit, reset: resetForm } = useForm();
+  const apiKey = '76fqibqibiqefb'; // changed apiKey and made it permanent for deployment
 
   const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
     axios
       .post(
-        `https://kaamelot-server.herokuapp.com/quests?apiKey=${window.apiKey}`,
+        `https://kaamelot-server.herokuapp.com/quests?apiKey=${apiKey}`,
         data
       )
       .then((res) => res.data)
       .then((newQuest) => {
         setQuest((oldList) => [...oldList, newQuest]);
-        console.log(data);
         resetForm();
       })
       .catch(console.error);
@@ -58,24 +56,24 @@ function QuestPost() {
         </div>
         <br />
 
-        <div className="assignment">
-            <Controller
-              name="assignment"
-              as={Select}
-              options={[
-                { label: "Bohort" },
-                { label: "Calogrenant" },
-                { label: "Galessin" },
-                { label: "Gauvain" },
-                { label: "Karadoc" },
-                { label: "Lancelot" },
-                { label: "Leodagan" },
-                { label: "Perceval" },
-                { label: "Yvain" }
-              ]}
-              control={control}
-              rules={{ required: true }}
-        />
+        <div className='assignment'>
+          <Controller
+            name='assignment'
+            as={Select}
+            options={[
+              { label: 'Bohort' },
+              { label: 'Calogrenant' },
+              { label: 'Galessin' },
+              { label: 'Gauvain' },
+              { label: 'Karadoc' },
+              { label: 'Lancelot' },
+              { label: 'Leodagan' },
+              { label: 'Perceval' },
+              { label: 'Yvain' },
+            ]}
+            control={control}
+            rules={{ required: true }}
+          />
         </div>
         <br />
         <div className='value'>
