@@ -6,7 +6,6 @@ import axios from 'axios';
 
 function QuestPost() {
   const [quest, setQuest] = useState([]);
-  // const { register, handleSubmit, reset: resetForm } = useForm([{toto: "tata"}]);
   const { control, register, handleSubmit, reset: resetForm } = useForm();
 
   const onSubmit = (data) => {
@@ -19,7 +18,7 @@ function QuestPost() {
       .then((res) => res.data)
       .then((newQuest) => {
         setQuest((oldList) => [...oldList, newQuest]);
-        console.log(data);
+        console.log(quest);
         resetForm();
       })
       .catch(console.error);
@@ -58,24 +57,24 @@ function QuestPost() {
         </div>
         <br />
 
-        <div className="assignment">
-            <Controller
-              name="assignment"
-              as={Select}
-              options={[
-                { label: "Bohort" },
-                { label: "Calogrenant" },
-                { label: "Galessin" },
-                { label: "Gauvain" },
-                { label: "Karadoc" },
-                { label: "Lancelot" },
-                { label: "Leodagan" },
-                { label: "Perceval" },
-                { label: "Yvain" }
-              ]}
-              control={control}
-              rules={{ required: true }}
-        />
+        <div className='assignment'>
+          <Controller
+            name='assignment'
+            as={Select}
+            options={[
+              { label: 'Bohort' },
+              { label: 'Calogrenant' },
+              { label: 'Galessin' },
+              { label: 'Gauvain' },
+              { label: 'Karadoc' },
+              { label: 'Lancelot' },
+              { label: 'Leodagan' },
+              { label: 'Perceval' },
+              { label: 'Yvain' },
+            ]}
+            control={control}
+            rules={{ required: true }}
+          />
         </div>
         <br />
         <div className='value'>
